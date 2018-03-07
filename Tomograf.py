@@ -70,23 +70,20 @@ def countLinePixel(x0,y0, x1,y1,image):
 
     return sum/x
 
-
 def calculateFunction_a_b(Xemit, Yemit, Xdet, Ydet):
     a = (Ydet - Yemit) / (Xdet - Xemit)
     b = Yemit - (Xemit * a)
     return a, b
 
-
 def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations, image, high):
+    sinogram=np.zeros((numberOfRotations,detectorsNumber))
 
-    sinogram=np.zeros((len(emitersList),len(detectorsList)))
     for j in range(0,int(detectorsNumber)-1):
         for i in range(0,int(numberOfRotations)-1):
             temp = countLinePixel(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1], image)
             sinogram[i][j]=temp
 
     return sinogram
-
 
 def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, centerY, numberofRotation):
     array=[]
@@ -131,7 +128,6 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
         point=[]
 
     return array
-
 
 def main():
 
