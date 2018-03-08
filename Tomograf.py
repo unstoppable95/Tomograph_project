@@ -101,10 +101,8 @@ def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
         x, y = (0, 0)
         for i in range(int(dx+1)):
             if((x0+x)<=imageX and (y0+y)<=imageY):
-                if (sinogramReverse[y0 + y, x0 + x] + detValue <= 1.0):
-                    sinogramReverse[x0 + x, y0 + y] = (sinogramReverse[y0 + y, x0 + x] + detValue)/2
-                else:
-                    sinogramReverse[x0 + x, y0 + y] = 1.0
+                sinogramReverse[y0 + y,x0 + x ] = (sinogramReverse[y0 + y,x0 + x ] + detValue)
+
             if d > 0:
                 d += delta_B
                 x += inc_x
@@ -122,10 +120,8 @@ def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
         x, y = (0, 0)
         for i in range(dy+1):
             if ((x0 + x )<= imageX and (y0 + y )<= imageY):
-                if(sinogramReverse[y0 + y, x0 + x] + detValue<=1.0):
-                    sinogramReverse[x0 + x, y0 + y] = (sinogramReverse[y0 + y, x0 + x] + detValue)/2
-                else:
-                    sinogramReverse[x0 + x, y0 + y] =1.0
+                sinogramReverse[y0 + y,x0 + x ] = (sinogramReverse[ y0 + y,x0 + x ] + detValue)
+
             if d > 0:
                 d += delta_B
                 x += inc_x
@@ -169,6 +165,19 @@ def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, 
     for i in range(numberOfRotation):
         for j in range(numberOfDet):
             lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse )
+
+    #finding max pixel
+    maxx=0.0
+    for i in range(len(sinogramReverse)):
+        for j in range (len(sinogramReverse[1])):
+            if(sinogramReverse[i][j])>maxx:
+                maxx = sinogramReverse[i][j]
+
+    #normalizing
+    for i in range(len(sinogramReverse)):
+        for j in range(len(sinogramReverse[1])):
+            sinogramReverse[i][j]=sinogramReverse[i][j]/maxx
+
 
 
 
