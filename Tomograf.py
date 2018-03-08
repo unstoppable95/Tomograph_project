@@ -5,8 +5,22 @@ from pylab import *
 import skimage as ski
 from skimage import data, io, filters, exposure
 import numpy as np
+from PIL import Image
+import numpy as np
+from scipy import ndimage
+import skimage.morphology as mp
+from skimage.filters.edges import convolve
+from skimage import color,measure
+import colorsys as cs
+from matplotlib import pylab as plt
+from skimage import img_as_ubyte
+from skimage import data
+import os
+from math import ceil
+from subprocess import call
 
-def line(x0,y0, x1,y1):
+def line(x0,y0, x1,y1 ,imageX, imageY):
+    #print(imageX, imageY)
     wyn=[]
     dx = x1-x0
     dy = y1-y0
@@ -29,7 +43,8 @@ def line(x0,y0, x1,y1):
 
         x, y = (0, 0)
         for i in range(int(dx+1)):
-            wyn.append([x0+x, y0+y])
+            if((x0+x)<=imageX and (y0+y)<=imageY):
+                wyn.append([x0+x, y0+y])
             if d > 0:
                 d += delta_B
                 x += inc_x
@@ -39,16 +54,15 @@ def line(x0,y0, x1,y1):
                 x += inc_x
 
     else:            # dy/dx > 1 -- odcinek leży w "czerwonym" oktancie
-                     # proszę zwrócić uwagę na wspomnianą zamianę znaczenia
-             # zmiennych
-
+                     # proszę zwrócić uwagę na wspomnianą zamianę znaczenia zmiennych
         d   = 2*dx - dy
         delta_A = 2*dx
         delta_B = 2*dx - 2*dy
 
         x, y = (0, 0)
         for i in range(dy+1):
-            wyn.append([x0+x, y0+y])
+            if ((x0 + x )<= imageX and (y0 + y )<= imageY):
+                wyn.append([x0+x, y0+y])
             if d > 0:
                 d += delta_B
                 x += inc_x
@@ -62,18 +76,16 @@ def line(x0,y0, x1,y1):
 def countLinePixel(x0,y0, x1,y1,image):
     sum=0.0
     x=0.0
-    array=line(x0,y0, x1,y1)
+
+    array=line(x0,y0, x1,y1,len(image[0]),len(image) )
 
     for i in array:
-        sum=sum+image[int(i[0]),int(i[1])]
+        #print(int(i[0]),int(i[1]))
+        sum=sum+image[int(i[1]),int(i[0])]
         x=x+1.0
 
     return sum/x
 
-def calculateFunction_a_b(Xemit, Yemit, Xdet, Ydet):
-    a = (Ydet - Yemit) / (Xdet - Xemit)
-    b = Yemit - (Xemit * a)
-    return a, b
 
 def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations, image, high):
     sinogram=np.zeros((numberOfRotations,detectorsNumber))
@@ -90,7 +102,6 @@ def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, cent
     arrayTemp=[]
     point = []
     r=r-1
-    #for alfa in arange(systemRotationAngleAlfa, radians(180.0), systemRotationAngleAlfa):
     alfa = radians(0.0)
     for i in range(numberofRotation):
         point.append(int( r* cos(alfa + pi - fi/2)+ centerX)) #x
@@ -131,34 +142,59 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
 
 def main():
 
-    systemRotationAngleAlfa = radians(2.0)  # in degrees
-    numberOfDet = 100
-    fi = radians(270)  # rozpietosc ukladu
-    image = io.imread('./Zdjecia-przyklad/Kwadraty2.jpg', flatten=True)
+    fileNames=getFileNames()
 
-    #size of picture
-    x=len(image[0])
-    y=len(image)
-    #center of picture
-    centerX=x/2
-    centerY=y/2
-    #radius
-    if(y<=x):
-        r=y/2
-    else:
-        r=x/2
-
-    numberOfRotations = int(radians(360.0)/systemRotationAngleAlfa)
-    arrayOfDetectors = makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, centerY, numberOfRotations)
+    for i in fileNames:
 
 
-    arrayOfEmiter = makeEmitersArray(numberOfRotations,r,centerX, centerY, systemRotationAngleAlfa)
-    high=y
-    sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
+        systemRotationAngleAlfa = radians(2.0)  # in degrees
+        numberOfDet = 100
+        fi = radians(270)  # rozpietosc ukladu
+        image = io.imread('./Zdjecia-przyklad/'+i, flatten=True)
 
-    io.imsave('./sinogram.jpg', sinogram)
+        #size of picture
+        x=len(image[0])
+        y=len(image)
+        print("X i Y: ", x, y)
 
-    print("END")
+        #center of picture
+        centerX=x/2
+        centerY=y/2
+
+        #radius
+        if(y<=x):
+            r=y/2
+        else:
+            r=x/2
+
+        numberOfRotations = int(radians(360.0)/systemRotationAngleAlfa)
+        arrayOfDetectors = makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, centerY, numberOfRotations)
+
+
+        arrayOfEmiter = makeEmitersArray(numberOfRotations,r,centerX, centerY, systemRotationAngleAlfa)
+        high=y
+        sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
+        #io.imshow(sinogram)
+        #plt.show(sinogram)
+        io.imsave('./sinogram_'+i, sinogram)
+
+        print("END :" + i)
+
+def getFileNames():
+    file_names = []
+    os.chdir('./Zdjecia-przyklad')
+    cwd = os.getcwd()
+    for file in os.listdir(cwd):
+        if file.endswith(".jpg"):
+            name = os.path.join(cwd, file)
+            file_names.append(file)
+
+
+    os.chdir('../')
+    os.getcwd()
+    return file_names
+
+
 
 if __name__ == '__main__':
     main()
