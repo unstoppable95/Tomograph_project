@@ -155,7 +155,7 @@ def main():
         #size of picture
         x=len(image[0])
         y=len(image)
-        print("X i Y: ", x, y)
+        print("Rozmiar obrazka" + i + " wynosi : ", x, y)
 
         #center of picture
         centerX=x/2
@@ -174,11 +174,10 @@ def main():
         arrayOfEmiter = makeEmitersArray(numberOfRotations,r,centerX, centerY, systemRotationAngleAlfa)
         high=y
         sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
-        #io.imshow(sinogram)
-        #plt.show(sinogram)
+
         io.imsave('./sinogram_'+i, sinogram)
 
-        print("END :" + i)
+        print("END : " + i)
 
 def getFileNames():
     file_names = []
