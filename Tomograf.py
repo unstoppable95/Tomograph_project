@@ -73,6 +73,70 @@ def line(x0,y0, x1,y1 ,imageX, imageY):
 
     return wyn
 
+
+
+def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
+    #print(imageX, imageY)
+    wyn=[]
+    sum=0.0
+    dx = x1-x0
+    dy = y1-y0
+
+    def sign(x):
+        if x >= 0: return +1
+        else:      return -1
+
+    inc_x = sign(dx) # uwzględnienie znaków dx
+    inc_y = sign(dy) # i dy
+
+    dx = abs(dx)     # teraz odcinek został "przeniesiony"
+    dy = abs(dy)     # do właściwego oktantu
+
+    if dx >= dy:     # dy/dx <= 1 -- odcinek leży w "niebieskim" oktancie
+
+        d       = 2*dy - dx
+        delta_A = 2*dy
+        delta_B = 2*dy - 2*dx
+
+        x, y = (0, 0)
+        for i in range(int(dx+1)):
+            if((x0+x)<=imageX and (y0+y)<=imageY):
+                if (sinogramReverse[y0 + y, x0 + x] + detValue <= 1.0):
+                    sinogramReverse[x0 + x, y0 + y] = (sinogramReverse[y0 + y, x0 + x] + detValue)/2
+                else:
+                    sinogramReverse[x0 + x, y0 + y] = 1.0
+            if d > 0:
+                d += delta_B
+                x += inc_x
+                y += inc_y
+            else:
+                d += delta_A
+                x += inc_x
+
+    else:            # dy/dx > 1 -- odcinek leży w "czerwonym" oktancie
+                     # proszę zwrócić uwagę na wspomnianą zamianę znaczenia zmiennych
+        d   = 2*dx - dy
+        delta_A = 2*dx
+        delta_B = 2*dx - 2*dy
+
+        x, y = (0, 0)
+        for i in range(dy+1):
+            if ((x0 + x )<= imageX and (y0 + y )<= imageY):
+                if(sinogramReverse[y0 + y, x0 + x] + detValue<=1.0):
+                    sinogramReverse[x0 + x, y0 + y] = (sinogramReverse[y0 + y, x0 + x] + detValue)/2
+                else:
+                    sinogramReverse[x0 + x, y0 + y] =1.0
+            if d > 0:
+                d += delta_B
+                x += inc_x
+                y += inc_y
+            else:
+                d += delta_A
+                y += inc_y
+
+    return wyn
+
+
 def countLinePixel(x0,y0, x1,y1,image):
     sum=0.0
     x=0.0
@@ -96,6 +160,17 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
             sinogram[i][j]=temp
 
     return sinogram
+
+
+def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse):
+    x = len(image[0])
+    y = len(image)
+
+    for i in range(numberOfRotation):
+        for j in range(numberOfDet):
+            lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse )
+
+
 
 def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, centerY, numberofRotation):
     array=[]
@@ -143,7 +218,7 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
 def main():
 
     fileNames=getFileNames()
-
+    #fileNames=['Kwadraty2.jpg']
     for i in fileNames:
 
 
@@ -176,8 +251,20 @@ def main():
         sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
 
         io.imsave('./sinogram_'+i, sinogram)
+        print("Sinogram saved")
+
+        sinogramReverse = np.zeros((x, y))
+        makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse)
+
+        io.imsave('./sinogramReverse_' + i, sinogramReverse)
 
         print("END : " + i)
+
+
+
+
+
+
 
 def getFileNames():
     file_names = []
