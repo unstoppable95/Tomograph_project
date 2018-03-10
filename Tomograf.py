@@ -75,10 +75,8 @@ def line(x0,y0, x1,y1 ,imageX, imageY):
 
 
 
-def lineReverse(x0,y0, x1,y1 ,imageY, imageX, image, detValue, sinogramReverse):
+def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
     #print(imageX, imageY)
-
-
     wyn=[]
     sum=0.0
     dx = x1-x0
@@ -102,7 +100,7 @@ def lineReverse(x0,y0, x1,y1 ,imageY, imageX, image, detValue, sinogramReverse):
 
         x, y = (0, 0)
         for i in range(int(dx+1)):
-            if((x0+x)<imageX and (y0+y)<imageY):
+            if((x0+x)<imageX-1 and (y0+y)<imageY-1):
                 sinogramReverse[y0 + y,x0 + x ] = (sinogramReverse[y0 + y,x0 + x ] + detValue)
 
             if d > 0:
@@ -121,10 +119,7 @@ def lineReverse(x0,y0, x1,y1 ,imageY, imageX, image, detValue, sinogramReverse):
 
         x, y = (0, 0)
         for i in range(dy+1):
-
-
-            if ((x0 + x )< imageX and (y0 + y )< imageY):
-
+            if ((x0 + x )< imageX-1 and (y0 + y )< imageY-1):
                 sinogramReverse[y0 + y,x0 + x ] = (sinogramReverse[ y0 + y,x0 + x ] + detValue)
 
             if d > 0:
@@ -159,14 +154,24 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
         for i in range(0,int(numberOfRotations)-1):
             temp = countLinePixel(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1], image)
             sinogram[i][j]=temp
-            #print(temp)
+
+    maxx = 0.0
+    for i in range(len(sinogram)):
+        for j in range(len(sinogram[1])):
+            if (sinogram[i][j]) > maxx:
+                maxx = sinogram[i][j]
+
+    # normalizing
+    for i in range(len(sinogram)):
+        for j in range(len(sinogram[1])):
+            sinogram[i][j] = sinogram[i][j] / maxx
 
     return sinogram
 
 
 def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse):
-    x = len(image[0])
-    y = len(image)
+    y = len(image[0])-2
+    x = len(image)-2
 
     for i in range(numberOfRotation):
         for j in range(numberOfDet):
@@ -191,21 +196,17 @@ def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, cent
     array=[]
     arrayTemp=[]
     point = []
-    r=r-1
+    r=r-2
     alfa = radians(0.0)
     for i in range(numberofRotation):
         point.append(int( r* cos(alfa + pi - fi/2)+ centerX)) #x
         point.append(int( r* sin(alfa + pi - fi/2)+ centerY) )#y
-
-
         arrayTemp.append(point)
         point=[]
 
         for i in range(1, numberOfDet):
             point.append (int( r*cos(alfa + pi - fi/2 + i*(fi/(numberOfDet-1)) )+ centerX) )#X
             point.append( int( r*sin(alfa + pi - fi/2 + i*(fi/(numberOfDet-1)) )+ centerY) )#Y
-
-
             arrayTemp.append(point)
             point=[]
 
@@ -223,7 +224,7 @@ def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, cent
 def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlfa):
     array = []
     point = []
-    r=r-1
+    r=r-2
     alfa=radians(0.0)
     for i in range(numberOfRotation):
         point.append( int(r*cos(alfa) + centerX))
@@ -233,29 +234,20 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
         point=[]
 
     return array
-def getFileNames():
-    file_names = []
-    os.chdir('./Zdjecia-przyklad')
-    cwd = os.getcwd()
-    for file in os.listdir(cwd):
-        if file.endswith(".jpg"):
-            name = os.path.join(cwd, file)
-            file_names.append(file)
 
-
-    os.chdir('../')
-    os.getcwd()
-    return file_names
 def main():
 
     fileNames=getFileNames()
-    #fileNames=['CT_ScoutView.jpg']
+   # fileNames=['CT_ScoutView.jpg']
     systemRotationAngleAlfa = radians(1.0)  # in degrees
     numberOfDet = 181
     fi = radians(270)  # rozpietosc ukladu
-
     for i in fileNames:
-        image = io.imread('./Zdjecia-przyklad/'+i, flatten=True )
+
+
+
+        #image = io.imread('./Zdjecia-przyklad/'+i, as_grey=True)
+        image = io.imread('./Zdjecia-przyklad/' + i, flatten=True)
 
         #size of picture
         x=len(image[0])
@@ -272,33 +264,46 @@ def main():
         else:
             r=x/2
 
+        r=r-2
         numberOfRotations = int(radians(360.0)/systemRotationAngleAlfa)
         arrayOfDetectors = makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, centerY, numberOfRotations)
-        #print(arrayOfDetectors)
 
 
         arrayOfEmiter = makeEmitersArray(numberOfRotations,r,centerX, centerY, systemRotationAngleAlfa)
         high=y
-        #print(arrayOfEmiter)
         sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
 
-        #print(sinogram)
-        #!!!!
-        #SCOUT WYWALA SIE NA ZAPISIE
         io.imsave('./sinogram_'+i, sinogram)
-        #cv2.imwrite('./sinogram'+i ,sinogram)
-        print("Sinogram saved " +i )
+        print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((x, y))
         makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse)
 
         io.imsave('./sinogramReverse_' + i, sinogramReverse)
-        #cv2.imwrite('./simogramReverse' + i, sinogramReverse)
+        print('Sinogram reverse saved ' +i)
 
-        print("Reverse singoram saved : " + i)
-        print("")
+    print("END !!! ")
 
-    print("END !!!")
+
+
+
+def getFileNames():
+    file_names = []
+    os.chdir('./Zdjecia-przyklad')
+    cwd = os.getcwd()
+    for file in os.listdir(cwd):
+        if file.endswith(".jpg"):
+            name = os.path.join(cwd, file)
+            file_names.append(file)
+        if file.endswith(".JPG"):
+            name = os.path.join(cwd, file)
+            file_names.append(file)
+
+    os.chdir('../')
+    os.getcwd()
+    return file_names
+
+
 
 if __name__ == '__main__':
     main()
