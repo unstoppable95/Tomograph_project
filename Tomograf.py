@@ -154,19 +154,42 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
         for i in range(0,int(numberOfRotations)-1):
             temp = countLinePixel(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1], image)
             sinogram[i][j]=temp
-
+    #sinogram2=sinogram
+    sinogram2 = ramLakFilter(sinogram)
     maxx = 0.0
-    for i in range(len(sinogram)):
-        for j in range(len(sinogram[1])):
-            if (sinogram[i][j]) > maxx:
-                maxx = sinogram[i][j]
+    for i in range(len(sinogram2)):
+        for j in range(len(sinogram2[0])):
+            if (sinogram2[i][j]) > maxx:
+                maxx = sinogram2[i][j]
+
 
     # normalizing
-    for i in range(len(sinogram)):
-        for j in range(len(sinogram[1])):
-            sinogram[i][j] = sinogram[i][j] / maxx
+    for i in range(len(sinogram2)):
+        for j in range(len(sinogram2[0])):
+            sinogram2[i][j] = sinogram2[i][j] / maxx
 
-    return sinogram
+
+    return sinogram2
+
+def ramLakFilter(image):
+    arr=[]
+    filter=[]
+    x=len(image[0])
+    for i in range(x):
+        if(i==0):
+            filter.append(1)
+        if(i%2==0):
+            filter.append(0)
+        if(i%2==1):
+            filter.append((-4/(pi*pi))/(i*i))
+
+    tmp=[]
+    for i in range(len(image)):
+        tmp=np.convolve(image[i],filter)
+        arr.append(tmp)
+        tmp=[]
+
+    return arr
 
 
 def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse):
@@ -238,7 +261,7 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
 def main():
 
     fileNames=getFileNames()
-   # fileNames=['CT_ScoutView.jpg']
+    #fileNames=['Kwadraty2.jpg']
     systemRotationAngleAlfa = radians(1.0)  # in degrees
     numberOfDet = 181
     fi = radians(270)  # rozpietosc ukladu
@@ -273,13 +296,15 @@ def main():
         high=y
         sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
 
-        io.imsave('./sinogram_'+i, sinogram)
+
+
+        io.imsave('./sinogramFILTR_'+i, sinogram)
         print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((x, y))
         makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse)
 
-        io.imsave('./sinogramReverse_' + i, sinogramReverse)
+        io.imsave('./sinogramReverseFILTR_' + i, sinogramReverse)
         print('Sinogram reverse saved ' +i)
 
     print("END !!! ")
