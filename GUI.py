@@ -7,6 +7,7 @@ import numpy as np
 from pylab import *
 def main():
 
+    #file to proceed
     fileName =[]
 
     def buttonWykonaj():
@@ -34,6 +35,12 @@ def main():
         fileName.append(filename)
 
 
+
+
+
+
+
+
     #window
     root = tk.Tk()
     root.title("TOMOGRAF")
@@ -43,10 +50,10 @@ def main():
     # x and y are the coordinates of the upper left corner
     w = 300
     h = 200
-    x = 50
-    y = 50
+    x = 20
+    y = 20
     # use width x height + x_offset + y_offset (no spaces!)
-    root.geometry("%dx%d+%d+%d" % (1200, 700, x, y))
+    root.geometry("%dx%d+%d+%d" % (1500, 950, x, y))
     # use a colorful frame
     frame = tk.Frame(root, bg='grey')
     frame.pack(fill='both', expand='yes')
@@ -102,28 +109,19 @@ def main():
     but.place(x=20, y=430)
 
     #button w lewo
-    but1 = tk.Button(frame, text="POPRZEDNI", bg='yellow')
-    but1.place(x=300, y=30)
+    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2)
+    but1.place(x=650, y=900)
 
     #buttin w prawo
-    but2 = tk.Button(frame, text="NASTEPNY", bg='yellow')
-    but2.place(x=400, y=30)
-
-
-
-
-
-    #plik w labelu
-    #im = Image.open('./Zdjecia-przyklad/Kwadraty2.jpg').convert2byte()
-    #tkimage = ImageTk.PhotoImage(im)
-    #tk.Label(frame, image=tkimage).pack()
+    but2 = tk.Button(frame, text="NASTEPNE", bg='yellow', width=10 , height=2)
+    but2.place(x=850, y=900)
 
     #dzialajacy plik w labelu
-    #image = Image.open("./Zdjecia-przyklad/Kwadraty2.jpg")
-    #photo = ImageTk.PhotoImage(image)
-    #label = tk.Label(image=photo)
-    #label.image = photo # keep a reference!
-    #label.pack()
+    image = Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg")
+    photo = ImageTk.PhotoImage(image)
+    label = tk.Label(image=photo , width=1300 , height=870 , bg='black')
+    label.place(x=180, y=10)
+
 
     root.mainloop()
 

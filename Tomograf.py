@@ -349,7 +349,7 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         pom=i.split("/")
 
         i=pom[len(pom)-1]
-       
+
 
         #center of picture
         centerX=x/2
