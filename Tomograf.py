@@ -18,6 +18,10 @@ from skimage import data
 import os
 from math import ceil
 from subprocess import call
+import dicom
+import os
+import numpy
+from matplotlib import pyplot, cm
 
 def line(x0,y0, x1,y1 ,imageX, imageY):
     #print(imageX, imageY)
@@ -75,9 +79,9 @@ def line(x0,y0, x1,y1 ,imageX, imageY):
 
 
 
-def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
+def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse, ii,jj, iterr):
     #print(imageX, imageY)
-    wyn=[]
+
     sum=0.0
     dx = x1-x0
     dy = y1-y0
@@ -130,7 +134,35 @@ def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse):
                 d += delta_A
                 y += inc_y
 
-    return wyn
+
+
+
+    if (ii % iterr == 0 and jj == 0):
+        wyn = []
+        wynTmp = []
+        # wyn=sinogramReverse
+        for i in range(len(sinogramReverse)):
+            for j in range(len(sinogramReverse[0])):
+                wynTmp.append(sinogramReverse[i][j])
+            wyn.append(wynTmp)
+            wynTmp = []
+
+        #normalize and save step
+        maxx = 0.0
+        for i in range(len(wyn)):
+            for j in range(len(wyn[0])):
+                if (wyn[i][j]) > maxx:
+                    maxx = wyn[i][j]
+
+        # normalizing
+        for i in range(len(wyn)):
+            for j in range(len(wyn[0])):
+                wyn[i][j] = wyn[i][j] / maxx
+
+
+        io.imsave('./STEP/sinogramStep_' + str(ii)+ '.jpg', wyn)
+        print("Zapisalem " , ii)
+
 
 
 def countLinePixel(x0,y0, x1,y1,image):
@@ -147,7 +179,7 @@ def countLinePixel(x0,y0, x1,y1,image):
     return sum/x
 
 
-def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations, image, high):
+def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations, image, high, isFilter):
     sinogram=np.zeros((numberOfRotations,detectorsNumber))
 
     for j in range(0,int(detectorsNumber)-1):
@@ -155,7 +187,10 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
             temp = countLinePixel(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1], image)
             sinogram[i][j]=temp
     #sinogram2=sinogram
-    sinogram2 = ramLakFilter(sinogram)
+    if(isFilter==1):
+        sinogram2 = ramLakFilter(sinogram)
+    else:
+        sinogram2=sinogram
     maxx = 0.0
     for i in range(len(sinogram2)):
         for j in range(len(sinogram2[0])):
@@ -171,9 +206,21 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
 
     return sinogram2
 
+
+def convolve(array1, array2):
+    wyn=[]
+    for i in range(len(array1)):
+        wyn.append(0)
+        for j in range(len(array2)):
+            wyn[i]=wyn[i]+array1[i-j]*array2[j]
+
+    return wyn
+
+
 def ramLakFilter(image):
     arr=[]
     filter=[]
+
     x=len(image[0])
     for i in range(x):
         if(i==0):
@@ -185,20 +232,20 @@ def ramLakFilter(image):
 
     tmp=[]
     for i in range(len(image)):
-        tmp=np.convolve(image[i],filter)
+        tmp=convolve(image[i],filter)#np.con...
         arr.append(tmp)
         tmp=[]
 
     return arr
 
 
-def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse):
+def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse, iterr):
     y = len(image[0])-2
     x = len(image)-2
 
     for i in range(numberOfRotation):
         for j in range(numberOfDet):
-            lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse )
+            lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse ,i,j, iterr)
 
     #finding max pixel
     maxx=0.0
@@ -258,16 +305,42 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
 
     return array
 
-def main():
+def meanSquaredError(oryginal, image):
+    sum=0.0
+    x=0
+    for i in range(len(oryginal)):
+        for j in range (len(oryginal[0])):
+            z=oryginal[i][i]-image[i][j]
+            sum=sum+(z*z)
+            x=x+1
 
-    fileNames=getFileNames()
-    #fileNames=['Kwadraty2.jpg']
-    systemRotationAngleAlfa = radians(1.0)  # in degrees
-    numberOfDet = 181
-    fi = radians(270)  # rozpietosc ukladu
+    return sum/x
+
+def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq):
+
+
+    #------ VARIABLES -----
+    # casting input parametres
+    #systemRotationAngleAlfa1 = float(rotationAngle)
+    systemRotationAngleAlfa = radians(float(rotationAngle))  # in degrees
+
+    numberOfDet = int(numberOfDet)
+
+    fi1 = int(angleFi)
+    fi = radians(fi1)  # rozpietosc ukladu
+
+    isFilter = int(usefiltr)
+    freqOfSave = int(freq)
+
+
+    #TODO
+    # fileNames=getFileNames()
+    fileNames = ['Kwadraty2.jpg']
+
+
+
+
     for i in fileNames:
-
-
 
         #image = io.imread('./Zdjecia-przyklad/'+i, as_grey=True)
         image = io.imread('./Zdjecia-przyklad/' + i, flatten=True)
@@ -294,7 +367,7 @@ def main():
 
         arrayOfEmiter = makeEmitersArray(numberOfRotations,r,centerX, centerY, systemRotationAngleAlfa)
         high=y
-        sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high)
+        sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high,isFilter )
 
 
 
@@ -302,14 +375,15 @@ def main():
         print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((x, y))
-        makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse)
+        makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse, freqOfSave)
 
         io.imsave('./sinogramReverseFILTR_' + i, sinogramReverse)
         print('Sinogram reverse saved ' +i)
 
+        err=meanSquaredError(image, sinogramReverse)
+        print("Blad sredniokwadratowy = " , err)
+
     print("END !!! ")
-
-
 
 
 def getFileNames():
@@ -330,5 +404,3 @@ def getFileNames():
 
 
 
-if __name__ == '__main__':
-    main()
