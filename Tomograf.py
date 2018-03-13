@@ -316,7 +316,7 @@ def meanSquaredError(oryginal, image):
 
     return sum/x
 
-def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq):
+def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
 
 
     #------ VARIABLES -----
@@ -333,22 +333,23 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq):
     freqOfSave = int(freq)
 
 
-    #TODO
-    # fileNames=getFileNames()
-    fileNames = ['Kwadraty2.jpg']
-
-
-
+    fileNames =file
 
     for i in fileNames:
 
-        #image = io.imread('./Zdjecia-przyklad/'+i, as_grey=True)
-        image = io.imread('./Zdjecia-przyklad/' + i, flatten=True)
+
+        image = io.imread(i, flatten=True)
 
         #size of picture
         x=len(image[0])
         y=len(image)
         print("Rozmiar obrazka " + i + " wynosi : ", x, y)
+
+
+        pom=i.split("/")
+
+        i=pom[len(pom)-1]
+       
 
         #center of picture
         centerX=x/2

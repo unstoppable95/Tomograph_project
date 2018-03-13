@@ -7,29 +7,32 @@ import numpy as np
 from pylab import *
 def main():
 
+    fileName =[]
+
     def buttonWykonaj():
         print("Kliknalem wykonaj")
 
         alfaAngle=e.get()
         print("kat alfa: " + alfaAngle)
         numDetector = e2.get()
-        print("liczba detektorow " + numDetector)
+        print("liczba detektorow: " + numDetector)
         fiAngle = e3.get()
-        print("liczba detektorow " + fiAngle)
+        print("liczba detektorow: " + fiAngle)
         iteration = e4.get()
-        print("liczba detektorow " + iteration)
+        print("liczba detektorow: " + iteration)
 
-        print("czy uzywac filtru " + str(CheckVar1.get()))
+        print("czy uzywac filtru: " + str(CheckVar1.get()))
 
 
 
-        Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration)
+        Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
 
     def fileNames():
 
         # otwieranie sciezki
         filename = askopenfilename()
-        print(filename)
+        fileName.append(filename)
+
 
     #window
     root = tk.Tk()
@@ -52,35 +55,37 @@ def main():
     # position a label on the frame using place(x, y)
     # place(x=0, y=0) would be the upper left frame corner
     #picture location
-    lb = tk.Label(frame, text="Wybierz plik do operacji :" , bg='grey')
+    lb = tk.Label(frame, text="Wybierz plik do operacji:" , bg='grey')
     lb.place(x=20, y=30)
 
     butFile = tk.Button(frame, text=" WYBIERZ PLIK ", bg='yellow', command=fileNames)
     butFile.place(x=20, y=60)
 
+
+
     #Angle Alpha
-    lb = tk.Label(frame, text="Podaj kat rotacji alfa :" , bg='grey')
+    lb = tk.Label(frame, text="Podaj kat rotacji alfa:" , bg='grey')
     lb.place(x=20, y=130)
     e = tk.Entry(root)
     e.place(x=20 , y=155)
     e.focus_set()
 
     #numberOfDetectors
-    lb2 = tk.Label(frame, text="Podaj liczbe detektorow  :", bg='grey')
+    lb2 = tk.Label(frame, text="Podaj liczbe detektorow:", bg='grey')
     lb2.place(x=20, y=190)
     e2 = tk.Entry(root)
     e2.place(x=20 , y=215)
     e2.focus_set()
 
     #Angle FI
-    lb3 = tk.Label(frame, text="Podaj kat (fi) :", bg='grey')
+    lb3 = tk.Label(frame, text="Podaj kat (fi):", bg='grey')
     lb3.place(x=20, y=250)
     e3 = tk.Entry(root)
     e3.place(x=20 , y=275)
     e3.focus_set()
 
     #save (co ile iteracji)
-    lb4 = tk.Label(frame, text="Co ile iteracji zapisac  :", bg='grey')
+    lb4 = tk.Label(frame, text="Co ile iteracji zapisac:", bg='grey')
     lb4.place(x=20, y=310)
     e4 = tk.Entry(root)
     e4.place(x=20 , y=335)

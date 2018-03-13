@@ -4,44 +4,42 @@
     <list default="true" id="4333512c-fc20-4c6e-a5ed-224904044a7c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_100 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_100.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_140.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_160.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_20.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_200 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_200.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_220.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_260 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_260.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_280.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_320 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_320.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_340.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_40.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_80 (1).jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_80.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Tomograf.py" afterPath="$PROJECT_DIR$/Tomograf.py" />
-      <change beforePath="$PROJECT_DIR$/Worked.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_CT_ScoutView-large.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_CT_ScoutView.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_Kolo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_Kropka.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_Kwadraty2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_Paski2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_SADDLE_PE-large.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_SADDLE_PE.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramBEZ_Shepp_logan.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_CT_ScoutView-large.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_CT_ScoutView.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_Kolo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_Kropka.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/sinogramFILTR_Kwadraty2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_Paski2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_SADDLE_PE-large.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_SADDLE_PE.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_Shepp_logan.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_CT_ScoutView-large.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_CT_ScoutView.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_Kolo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_Kropka.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_Kwadraty2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_Paski2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_SADDLE_PE-large.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_SADDLE_PE.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseBEZ_Shepp_logan.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_CT_ScoutView-large.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_CT_ScoutView.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Kolo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Kropka.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Kwadraty2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Paski2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_SADDLE_PE-large.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_SADDLE_PE.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Shepp_logan.jpg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,7 +49,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Tomograph_project$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1520962377727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tomograph_project$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1520964697006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograf$Tamograf.coverage" NAME="Tamograf Coverage Results" MODIFIED="1520498220528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograph_project$Tomograf.coverage" NAME="Tomograf Coverage Results" MODIFIED="1520703192187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograf$Tomograf.coverage" NAME="Tomograf Coverage Results" MODIFIED="1520498753382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -61,8 +59,8 @@
       <file leaf-file-name="Tomograf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tomograf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="324" column="4" lean-forward="false" selection-start-line="324" selection-start-column="4" selection-end-line="324" selection-end-column="4" />
+            <state relative-caret-position="153">
+              <caret line="351" column="7" lean-forward="false" selection-start-line="351" selection-start-column="7" selection-end-line="351" selection-end-column="7" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -73,8 +71,8 @@
       <file leaf-file-name="GUI.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            <state relative-caret-position="-29">
+              <caret line="87" column="55" lean-forward="false" selection-start-line="87" selection-start-column="55" selection-end-line="87" selection-end-column="55" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -118,7 +116,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="945" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -278,19 +276,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26847827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.096481875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09754797" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39891306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -301,31 +299,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31060606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2217484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -340,12 +315,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Zdjecia-przyklad/Shepp_logan.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sinogramReverse_Kwadraty2.jpg" />
     <entry file="file://$PROJECT_DIR$/Tomograf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3740">
@@ -468,28 +437,31 @@
     <entry file="file://$PROJECT_DIR$/sinogram_Kwadraty2.jpg" />
     <entry file="file://$PROJECT_DIR$/sinogramFILTR_Kwadraty2.jpg" />
     <entry file="file://$PROJECT_DIR$/sinogramReverseFILTR_Kwadraty2.jpg" />
-    <entry file="file://$PROJECT_DIR$/Tomogra1f.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="260" column="2" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="271" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Tomogra1f.py" />
     <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        <state relative-caret-position="-29">
+          <caret line="87" column="55" lean-forward="false" selection-start-line="87" selection-start-column="55" selection-end-line="87" selection-end-column="55" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sinogramReverseFILTR_Kropka.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sinogramFILTR_Kropka.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tomograf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="324" column="4" lean-forward="false" selection-start-line="324" selection-start-column="4" selection-end-line="324" selection-end-column="4" />
+        <state relative-caret-position="153">
+          <caret line="351" column="7" lean-forward="false" selection-start-line="351" selection-start-column="7" selection-end-line="351" selection-end-column="7" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
