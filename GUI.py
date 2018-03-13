@@ -18,9 +18,9 @@ def main():
         numDetector = e2.get()
         print("liczba detektorow: " + numDetector)
         fiAngle = e3.get()
-        print("liczba detektorow: " + fiAngle)
+        print("kat fi: " + fiAngle)
         iteration = e4.get()
-        print("liczba detektorow: " + iteration)
+        print("liczba ieracji: " + iteration)
 
         print("czy uzywac filtru: " + str(CheckVar1.get()))
 
@@ -34,7 +34,10 @@ def main():
         filename = askopenfilename()
         fileName.append(filename)
 
-
+    def callback():
+        img2 = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/Kropka.jpg"))
+        label.configure(image=img2)
+        label.image = img2
 
 
 
@@ -109,7 +112,7 @@ def main():
     but.place(x=20, y=430)
 
     #button w lewo
-    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2)
+    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callback)
     but1.place(x=650, y=900)
 
     #buttin w prawo
@@ -117,12 +120,14 @@ def main():
     but2.place(x=850, y=900)
 
     #dzialajacy plik w labelu
-    image = Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg")
-    photo = ImageTk.PhotoImage(image)
+    #image = Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg")
+    #photo = ImageTk.PhotoImage(image)
+    photo = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg"))
     label = tk.Label(image=photo , width=1300 , height=870 , bg='black')
     label.place(x=180, y=10)
 
 
+    root.bind("<Return>", callback)
     root.mainloop()
 
 

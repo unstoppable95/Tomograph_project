@@ -79,7 +79,7 @@ def line(x0,y0, x1,y1 ,imageX, imageY):
 
 
 
-def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse, ii,jj, iterr):
+def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse, ii,jj, iterr,name):
     #print(imageX, imageY)
 
     sum=0.0
@@ -160,7 +160,7 @@ def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse, 
                 wyn[i][j] = wyn[i][j] / maxx
 
 
-        io.imsave('./STEP/sinogramStep_' + str(ii)+ '.jpg', wyn)
+        io.imsave('./STEP/sinogramStep_' + str(ii) +'_'+ str(name)  + '.jpg', wyn)
         print("Zapisalem " , ii)
 
 
@@ -239,13 +239,13 @@ def ramLakFilter(image):
     return arr
 
 
-def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse, iterr):
+def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse, iterr,name):
     y = len(image[0])-2
     x = len(image)-2
 
     for i in range(numberOfRotation):
         for j in range(numberOfDet):
-            lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse ,i,j, iterr)
+            lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse ,i,j, iterr,name)
 
     #finding max pixel
     maxx=0.0
@@ -332,6 +332,10 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
     isFilter = int(usefiltr)
     freqOfSave = int(freq)
 
+    if (isFilter):
+        nameFiltr='FILTR_'
+    else:
+        nameFiltr ='BEZ_FILTRA_'
 
     fileNames =file
 
@@ -370,15 +374,17 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         high=y
         sinogram = makeSinogram(arrayOfDetectors, arrayOfEmiter, numberOfDet, numberOfRotations, image, high,isFilter )
 
+        #file name to make sinogram reverse step by step
+        named=i.split(".")
+        name=named[0]+'_'+nameFiltr
 
-
-        io.imsave('./sinogramFILTR_'+i, sinogram)
+        io.imsave('./sinogram_'+nameFiltr+i, sinogram)
         print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((x, y))
-        makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse, freqOfSave)
+        makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse, freqOfSave,name)
 
-        io.imsave('./sinogramReverseFILTR_' + i, sinogramReverse)
+        io.imsave('./sinogramReverse_'+ nameFiltr + i, sinogramReverse)
         print('Sinogram reverse saved ' +i)
 
         err=meanSquaredError(image, sinogramReverse)
