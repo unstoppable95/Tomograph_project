@@ -17,7 +17,7 @@ def main():
     idx = 0
 
     def buttonWykonaj():
-        print("Kliknalem wykonaj")
+        #print("Kliknalem wykonaj")
 
         alfaAngle=e.get()
         print("Kat alfa: " + alfaAngle)
@@ -90,7 +90,12 @@ def main():
         label.configure(image=img2)
         label.image = img2
 
+    def callback():
 
+        filename1 = askopenfilename()
+        img2 = ImageTk.PhotoImage(Image.open(filename1))
+        label.configure(image=img2)
+        label.image = img2
 
     #window
     root = tk.Tk()
@@ -158,16 +163,23 @@ def main():
 
 
     # put the button below the label, change y coordinate
-    but = tk.Button(frame, text=" WYKONAJ ", bg='yellow', command=buttonWykonaj)
+    but = tk.Button(frame, text=" PRZETWORZ ", bg='yellow', command=buttonWykonaj)
     but.place(x=20, y=430)
 
     #button w lewo
-    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callbackLEFT)
+    but1 = tk.Button(frame, text=" POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callbackLEFT)
     but1.place(x=650, y=900)
 
     #buttin w prawo
-    but2 = tk.Button(frame, text="NASTEPNE", bg='yellow', width=10 , height=2 , command=callbackRIGHT)
+    but2 = tk.Button(frame, text=" NASTEPNE", bg='yellow', width=10 , height=2 , command=callbackRIGHT)
     but2.place(x=850, y=900)
+
+    lb4 = tk.Label(frame, text="Obrazek do wyświetlenia:", bg='grey')
+    lb4.place(x=20, y=650)
+
+    # buttion dowolny plik
+    but3 = tk.Button(frame, text=" WYBIERZ OBRAZEK", bg='yellow', width=15, height=2, command=callback)
+    but3.place(x=20, y=700)
 
     #dzialajacy plik w labelu
 
