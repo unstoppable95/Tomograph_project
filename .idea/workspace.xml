@@ -4,21 +4,34 @@
     <list default="true" id="4333512c-fc20-4c6e-a5ed-224904044a7c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Tomograf.py" afterPath="$PROJECT_DIR$/Tomograf.py" />
-      <change beforePath="$PROJECT_DIR$/sinogramFILTR_Kropka.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sinogramReverseFILTR_Kropka.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90_Kolo_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90_Kolo_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogramReverse_BEZ_FILTRA_Kolo.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogramReverse_FILTR_Kolo.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogram_BEZ_FILTRA_Kolo.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogram_FILTR_Kolo.jpg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +41,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Tomograph_project$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1520969915616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tomograph_project$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1521013841506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograf$Tamograf.coverage" NAME="Tamograf Coverage Results" MODIFIED="1520498220528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograph_project$Tomograf.coverage" NAME="Tomograf Coverage Results" MODIFIED="1520703192187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tomograf$Tomograf.coverage" NAME="Tomograf Coverage Results" MODIFIED="1520498753382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -38,8 +51,8 @@
       <file leaf-file-name="Tomograf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tomograf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="377" column="26" lean-forward="true" selection-start-line="377" selection-start-column="26" selection-end-line="377" selection-end-column="26" />
+            <state relative-caret-position="68">
+              <caret line="324" column="30" lean-forward="false" selection-start-line="324" selection-start-column="30" selection-end-line="324" selection-end-column="60" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#680#2071#0" expanded="false" />
@@ -60,10 +73,14 @@
       <file leaf-file-name="GUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="459">
+              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#964#1331#0" expanded="false" />
+                <element signature="e#1749#1840#0" expanded="false" />
+                <element signature="e#1874#2096#0" expanded="false" />
+                <element signature="e#2131#2398#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -105,8 +122,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="834" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="824" />
+    <option name="y" value="11" />
     <option name="width" value="1093" />
     <option name="height" value="1047" />
   </component>
@@ -131,11 +149,6 @@
             <path>
               <item name="Tomograph_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tomograph_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tomograph_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomograph_project" type="462c0819:PsiDirectoryNode" />
-              <item name="STEP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Tomograph_project" type="b2602c69:ProjectViewProjectNode" />
@@ -270,15 +283,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="824" y="11" width="1093" height="1047" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27065217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3391877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28624734" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39980638" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -303,9 +316,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27065217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26630434" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28624734" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -331,68 +344,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sinogramReverse_Kolo.jpg" />
-    <entry file="file://$PROJECT_DIR$/Tomograf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#680#2071#0" expanded="false" />
-            <element signature="e#2179#4452#0" expanded="false" />
-            <element signature="e#4500#4707#0" expanded="false" />
-            <element signature="e#4819#5605#0" expanded="false" />
-            <element signature="e#5642#5804#0" expanded="false" />
-            <element signature="e#5836#6209#0" expanded="false" />
-            <element signature="e#6346#7021#0" expanded="false" />
-            <element signature="e#7134#8013#0" expanded="false" />
-            <element signature="e#8103#8402#0" expanded="false" />
-            <element signature="e#8447#8643#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tomograf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#680#2071#0" expanded="false" />
-            <element signature="e#2179#4452#0" expanded="false" />
-            <element signature="e#4500#4707#0" expanded="false" />
-            <element signature="e#4819#5605#0" expanded="false" />
-            <element signature="e#5642#5804#0" expanded="false" />
-            <element signature="e#5836#6209#0" expanded="false" />
-            <element signature="e#6346#7021#0" expanded="false" />
-            <element signature="e#7134#8013#0" expanded="false" />
-            <element signature="e#8103#8402#0" expanded="false" />
-            <element signature="e#8447#8643#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tomograf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#680#2071#0" expanded="false" />
-            <element signature="e#2179#4452#0" expanded="false" />
-            <element signature="e#4500#4707#0" expanded="false" />
-            <element signature="e#4819#5605#0" expanded="false" />
-            <element signature="e#5642#5804#0" expanded="false" />
-            <element signature="e#5836#6209#0" expanded="false" />
-            <element signature="e#6346#7021#0" expanded="false" />
-            <element signature="e#7134#8013#0" expanded="false" />
-            <element signature="e#8103#8402#0" expanded="false" />
-            <element signature="e#8447#8643#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tamograf.py" />
     <entry file="file://$PROJECT_DIR$/Tamograf.py" />
     <entry file="file://$PROJECT_DIR$/Tamograf.py" />
     <entry file="file://$PROJECT_DIR$/Tamograf.py" />
@@ -468,35 +419,21 @@
     <entry file="file://$PROJECT_DIR$/sinogramFILTR_Kwadraty2.jpg" />
     <entry file="file://$PROJECT_DIR$/sinogramReverseFILTR_Kwadraty2.jpg" />
     <entry file="file://$PROJECT_DIR$/Tomogra1f.py" />
-    <entry file="file://$PROJECT_DIR$/sinogramReverseFILTR_Kropka.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sinogramFILTR_Kropka.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sinogramReverseFILTR_Kropka.jpg" />
+    <entry file="file://$PROJECT_DIR$/sinogramFILTR_Kropka.jpg" />
     <entry file="file://$PROJECT_DIR$/Zdjecia-przyklad/Kropka.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_Kwadraty2.jpg_20.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sinogramReverse_FILTRKolo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_Kwadraty2.jpg_20.jpg" />
+    <entry file="file://$PROJECT_DIR$/sinogramReverse_FILTRKolo.jpg" />
+    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_0_Kolo_FILTR_.jpg" />
+    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_330_Kolo_BEZ_FILTRA_.jpg" />
     <entry file="file://$PROJECT_DIR$/Tomograf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="377" column="26" lean-forward="true" selection-start-line="377" selection-start-column="26" selection-end-line="377" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="324" column="30" lean-forward="false" selection-start-line="324" selection-start-column="30" selection-end-line="324" selection-end-column="60" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#680#2071#0" expanded="false" />
@@ -513,12 +450,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_330_Kwadraty2_FILTR_.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sinogramReverse_FILTR_Kolo.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/STEP/sinogramStep_330_Kolo_FILTR_.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#964#1331#0" expanded="false" />
+            <element signature="e#1749#1840#0" expanded="false" />
+            <element signature="e#1874#2096#0" expanded="false" />
+            <element signature="e#2131#2398#0" expanded="false" />
           </folding>
         </state>
       </provider>

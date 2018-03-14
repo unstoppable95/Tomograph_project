@@ -6,27 +6,62 @@ import Tomograf
 import numpy as np
 from pylab import *
 def main():
+    # file to proceed
+    fileName = []
 
-    #file to proceed
-    fileName =[]
+    # files to display
+    fileNamesDisp = []
+
+    # main left - right
+
+    idx = 0
 
     def buttonWykonaj():
         print("Kliknalem wykonaj")
 
         alfaAngle=e.get()
-        print("kat alfa: " + alfaAngle)
+        print("Kat alfa: " + alfaAngle)
         numDetector = e2.get()
-        print("liczba detektorow: " + numDetector)
+        print("Liczba detektorow: " + numDetector)
         fiAngle = e3.get()
-        print("kat fi: " + fiAngle)
+        print("Kat fi: " + fiAngle)
         iteration = e4.get()
-        print("liczba ieracji: " + iteration)
+        print("Co ile iteracji zapisac przebieg : " + iteration)
+        print("Czy uzywac filtru: " + str(CheckVar1.get()))
 
-        print("czy uzywac filtru: " + str(CheckVar1.get()))
-
-
-
+        #image proceed
         Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
+
+        shortName=createShortcut()
+        findFilesInto(shortName,int(iteration),alfaAngle)
+
+
+    def createShortcut():
+        # use shortcut for search
+        if (CheckVar1.get()):
+            nameFiltr = 'FILTR_'
+        else:
+            nameFiltr = 'BEZ_FILTRA_'
+
+        toSplit = fileName[0].split("/")
+        readyName = toSplit[len(toSplit) - 1]
+        readyName1 = readyName.split(".")
+        ready = readyName1[0]
+        shortcut = ready + '_' + nameFiltr
+        return shortcut
+
+    def findFilesInto(name1,iterator1,x):
+        i =0
+        iterator = int(iterator1)
+        z= int(int(360.0 /float( x))/iterator)
+        for i in range (0,z*iterator,iterator):
+            print(i)
+            name ='_'+ str(i) + '_' + name1
+            for file in os.listdir('./STEP'):
+                    if name in file:
+                        fileNamesDisp.append(file)
+
+
 
     def fileNames():
 
@@ -34,13 +69,26 @@ def main():
         filename = askopenfilename()
         fileName.append(filename)
 
-    def callback():
-        img2 = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/Kropka.jpg"))
+    def callbackLEFT():
+        nonlocal idx
+        if(idx>0):
+            idx-=1
+        else:
+            idx=0
+        img2 = ImageTk.PhotoImage(Image.open("./STEP/"+ fileNamesDisp[idx]))
         label.configure(image=img2)
         label.image = img2
 
+    def callbackRIGHT():
+        nonlocal idx
+        if (idx < len(fileNamesDisp)-1):
+            idx += 1
+        else:
+            idx = len(fileNamesDisp)-1
 
-
+        img2 = ImageTk.PhotoImage(Image.open("./STEP/"+fileNamesDisp[idx]))
+        label.configure(image=img2)
+        label.image = img2
 
 
 
@@ -48,6 +96,8 @@ def main():
     root = tk.Tk()
     root.title("TOMOGRAF")
     root.resizable(width=False, height=False)
+
+
 
     # set the root window's height, width and x,y position
     # x and y are the coordinates of the upper left corner
@@ -112,22 +162,21 @@ def main():
     but.place(x=20, y=430)
 
     #button w lewo
-    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callback)
+    but1 = tk.Button(frame, text="POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callbackLEFT)
     but1.place(x=650, y=900)
 
     #buttin w prawo
-    but2 = tk.Button(frame, text="NASTEPNE", bg='yellow', width=10 , height=2)
+    but2 = tk.Button(frame, text="NASTEPNE", bg='yellow', width=10 , height=2 , command=callbackRIGHT)
     but2.place(x=850, y=900)
 
     #dzialajacy plik w labelu
-    #image = Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg")
-    #photo = ImageTk.PhotoImage(image)
-    photo = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/CT_ScoutView-large.jpg"))
+
+    photo = ImageTk.PhotoImage(Image.open("./START.jpg"))
     label = tk.Label(image=photo , width=1300 , height=870 , bg='black')
     label.place(x=180, y=10)
 
 
-    root.bind("<Return>", callback)
+    #root.bind("<Return>", callback)
     root.mainloop()
 
 
