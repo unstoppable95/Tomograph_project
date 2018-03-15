@@ -55,7 +55,7 @@ def main():
         iterator = int(iterator1)
         z= int(int(360.0 /float( x))/iterator)
         for i in range (0,z*iterator,iterator):
-            print(i)
+            #print(i)
             name ='_'+ str(i) + '_' + name1
             for file in os.listdir('./STEP'):
                     if name in file:

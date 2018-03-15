@@ -191,6 +191,8 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
         sinogram2 = ramLakFilter(sinogram)
     else:
         sinogram2=sinogram
+
+
     maxx = 0.0
     for i in range(len(sinogram2)):
         for j in range(len(sinogram2[0])):
@@ -218,10 +220,13 @@ def convolve(array1, array2):
 
 
 def ramLakFilter(image):
-    arr=[]
+    print("PRZED: ", len(image), " ", len(image[0]))
+
     filter=[]
 
-    x=len(image[0])
+
+    x=int(len(image[0])/4)
+
     for i in range(x):
         if(i==0):
             filter.append(1)
@@ -230,18 +235,34 @@ def ramLakFilter(image):
         if(i%2==1):
             filter.append((-4/(pi*pi))/(i*i))
 
-    tmp=[]
+    arr=np.zeros((len(image),len(image[0])+x))
+    arr2=np.zeros((len(image),len(image[0])+x))
+
+    #uzupelnianie
     for i in range(len(image)):
-        tmp=convolve(image[i],filter)#np.con...
-        arr.append(tmp)
-        tmp=[]
+        for j in range(x, len(image[0])+x):
+            arr2[i][j]=image[i][j-x]
+
+    '''
+    for i in range(len(image)):
+        for j in range(len(image[0])+x):
+            for k in range(len(filter)):
+                arr[i][j] += arr2[i][j - k] * filter[k]
+    '''
+    #for o in range(4):
+    for i in range(len(image)):
+        for j in range(len(image[0]) + x):
+            for k in range(len(filter)):
+                arr[i][j] += arr2[i][j - k] * filter[k]
+
+    arr = arr[:, x:]
+    print("PO: ",len(arr)," ", len(arr[0]))
 
     return arr
 
-
 def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, emitersList, image, sinogramReverse, iterr,name):
-    y = len(image[0])-2
-    x = len(image)-2
+    x = len(image[0])-2
+    y = len(image)-2
 
     for i in range(numberOfRotation):
         for j in range(numberOfDet):
@@ -306,7 +327,7 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
     return array
 
 def meanSquaredError(oryginal, image):
-    sum=0.0
+    '''sum=0.0
     x=0
     for i in range(len(oryginal)):
         for j in range (len(oryginal[0])):
@@ -314,7 +335,8 @@ def meanSquaredError(oryginal, image):
             sum=sum+(z*z)
             x=x+1
 
-    return sum/x
+    return sum/x'''
+    return np.power(np.subtract(oryginal, image),2).mean() ** 0.5
 
 def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
 
@@ -381,7 +403,7 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         io.imsave('./sinogram_'+nameFiltr+i, sinogram)
         print("Sinogram saved : " + i)
 
-        sinogramReverse = np.zeros((x, y))
+        sinogramReverse = np.zeros((y, x))
         makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse, freqOfSave,name)
 
         io.imsave('./sinogramReverse_'+ nameFiltr + i, sinogramReverse)
