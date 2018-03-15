@@ -240,8 +240,8 @@ def ramLakFilter(image):
 
     #uzupelnianie
     for i in range(len(image)):
-        for j in range(x, len(image[0])+x):
-            arr2[i][j]=image[i][j-x]
+        for j in range(int(x/2),  len(image[0])+int(x/2)):
+            arr2[i][j]=image[i][j-int(x/2)]
 
     '''
     for i in range(len(image)):
@@ -251,12 +251,15 @@ def ramLakFilter(image):
     '''
     #for o in range(4):
     for i in range(len(image)):
-        for j in range(len(image[0]) + x):
+        for j in range(int(len(filter)/2),   len(image[0]) ):
             for k in range(len(filter)):
-                arr[i][j] += arr2[i][j - k] * filter[k]
+                arr[i][j] = arr[i][j] + (arr2[i][j-k] * filter[k]) + (arr2[i][j+k] * filter[k])
 
-    arr = arr[:, x:]
-    print("PO: ",len(arr)," ", len(arr[0]))
+    print("PO1: ", len(arr), " ", len(arr[0]))
+
+    arr = arr[:, int(x/2):len(image[0])+int(x/2)]
+
+    print("PO2: ",len(arr)," ", len(arr[0]))
 
     return arr
 
@@ -268,18 +271,18 @@ def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, 
         for j in range(numberOfDet):
             lineReverse(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1],x, y,image, sinogram[i][j], sinogramReverse ,i,j, iterr,name)
 
+
     #finding max pixel
     maxx=0.0
     for i in range(len(sinogramReverse)):
-        for j in range (len(sinogramReverse[1])):
+        for j in range (len(sinogramReverse[0])):
             if(sinogramReverse[i][j])>maxx:
                 maxx = sinogramReverse[i][j]
 
     #normalizing
     for i in range(len(sinogramReverse)):
-        for j in range(len(sinogramReverse[1])):
+        for j in range(len(sinogramReverse[0])):
             sinogramReverse[i][j]=sinogramReverse[i][j]/maxx
-
 
 
 
