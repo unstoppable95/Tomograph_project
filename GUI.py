@@ -6,16 +6,41 @@ import Tomograf
 import numpy as np
 from pylab import *
 def main():
+
     # file to proceed
     fileName = []
 
-    # files to display
+    # files to display ( steps )
     fileNamesDisp = []
 
     # main left - right
-
     idx = 0
 
+    def printError(error):
+        # Label5
+        lb5 = tk.Label(frame, text=error, bg='grey')
+        lb5.place(x=20, y=520)
+        #
+        lb5 = tk.Label(frame, text='Blad sredniokwadratowy :', bg='grey')
+        lb5.place(x=20, y=500)
+
+    def setPhotoSinogramReverse(fileName):
+        reverseName=fileName.split("_")
+        path=[]
+        if (CheckVar1.get()):
+            nameFiltr = 'FILTR_'
+        else:
+            nameFiltr = 'BEZ_FILTRA_'
+
+        findName='Reverse_'+nameFiltr+reverseName[0]
+        for file in os.listdir('./'):
+            if findName in file:
+                path.append(file)
+
+
+        img2 = ImageTk.PhotoImage(Image.open(path[0]))
+        label.configure(image=img2)
+        label.image = img2
 
 
     def buttonWykonaj():
@@ -33,17 +58,12 @@ def main():
 
         #image proceed
         pom1=Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
-
-
         error= str(pom1)
         shortName=createShortcut()
         findFilesInto(shortName,int(iteration),alfaAngle)
-        # Label5
-        lb5 = tk.Label(frame, text=error, bg='grey')
-        lb5.place(x=20, y=520)
-        #
-        lb5 = tk.Label(frame, text='Blad sredniokwadratowy :', bg='grey')
-        lb5.place(x=20, y=500)
+        printError(error)
+        setPhotoSinogramReverse(shortName)
+
 
 
     def createShortcut():
@@ -106,6 +126,9 @@ def main():
         img2 = ImageTk.PhotoImage(Image.open(filename1))
         label.configure(image=img2)
         label.image = img2
+
+
+    #main loop
 
     #window
     root = tk.Tk()
