@@ -2,7 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4333512c-fc20-4c6e-a5ed-224904044a7c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_0_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_120_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_150_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_180_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_210_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_240_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_270_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_300_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_30_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_330_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_60_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90_Kropka_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90_Kwadraty2_BEZ_FILTRA_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/STEP/sinogramStep_90_Kwadraty2_FILTR_.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogramReverse_BEZ_FILTRA_Kwadraty2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogramReverse_FILTR_Kwadraty2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogram_BEZ_FILTRA_Kwadraty2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sinogram_FILTR_Kwadraty2.jpg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -254,7 +294,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="835" y="0" width="1093" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -262,7 +301,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34906697" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44917715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44917715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
