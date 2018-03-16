@@ -414,7 +414,7 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
 
         err=meanSquaredError(image, sinogramReverse)
         print("Blad sredniokwadratowy = " , err)
-
+    return err
     print("END !!! ")
 
 

@@ -16,6 +16,8 @@ def main():
 
     idx = 0
 
+
+
     def buttonWykonaj():
         #print("Kliknalem wykonaj")
 
@@ -30,10 +32,18 @@ def main():
         print("Czy uzywac filtru: " + str(CheckVar1.get()))
 
         #image proceed
-        Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
+        pom1=Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
 
+
+        error= str(pom1)
         shortName=createShortcut()
         findFilesInto(shortName,int(iteration),alfaAngle)
+        # Label5
+        lb5 = tk.Label(frame, text=error, bg='grey')
+        lb5.place(x=20, y=520)
+        #
+        lb5 = tk.Label(frame, text='Blad sredniokwadratowy :', bg='grey')
+        lb5.place(x=20, y=500)
 
 
     def createShortcut():
@@ -174,8 +184,13 @@ def main():
     but2 = tk.Button(frame, text=" NASTEPNE", bg='yellow', width=10 , height=2 , command=callbackRIGHT)
     but2.place(x=850, y=900)
 
+
+
+
     lb4 = tk.Label(frame, text="Obrazek do wyświetlenia:", bg='grey')
     lb4.place(x=20, y=650)
+
+
 
     # buttion dowolny plik
     but3 = tk.Button(frame, text=" WYBIERZ OBRAZEK", bg='yellow', width=15, height=2, command=callback)
