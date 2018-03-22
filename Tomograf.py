@@ -23,6 +23,23 @@ import os
 import numpy
 from matplotlib import pyplot, cm
 
+
+def normalize(image):
+    maxx = -1000000.0
+    minn = 100000.0
+    for i in range(len(image)):
+        for j in range(len(image[0])):
+            if (image[i][j] > maxx):
+                maxx = image[i][j]
+            if (image[i][j] < minn):
+                minn = image[i][j]
+
+    for i in range(len(image)):
+        for j in range(len(image[0])):
+            image[i][j] = (image[i][j] - minn) / (maxx - minn)
+
+    return image
+
 def line(x0,y0, x1,y1 ,imageX, imageY):
     #print(imageX, imageY)
     wyn=[]
@@ -147,19 +164,24 @@ def lineReverse(x0,y0, x1,y1 ,imageX, imageY, image, detValue, sinogramReverse, 
             wyn.append(wynTmp)
             wynTmp = []
 
+        '''
         #normalize and save step
-        maxx = 0.0
+        maxx = -1000000.0
+        minn=100000.0
         for i in range(len(wyn)):
             for j in range(len(wyn[0])):
-                if (wyn[i][j]) > maxx:
+                if (wyn[i][j] > maxx):
                     maxx = wyn[i][j]
+                if(wyn[i][j] <minn):
+                    minn=wyn[i][j]
 
         # normalizing
         for i in range(len(wyn)):
             for j in range(len(wyn[0])):
-                wyn[i][j] = wyn[i][j] / maxx
+                wyn[i][j] = (wyn[i][j] - minn) / (maxx - minn)
 
-
+        '''
+        wyn=normalize(wyn)
         io.imsave('./STEP/sinogramStep_' + str(ii) +'_'+ str(name)  + '.jpg', wyn)
         print("Zapisalem " , ii)
 
@@ -192,20 +214,23 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
     else:
         sinogram2=sinogram
 
-
-    maxx = 0.0
+    '''
+    maxx = -100000.0
+    minn=100000.0
     for i in range(len(sinogram2)):
         for j in range(len(sinogram2[0])):
-            if (sinogram2[i][j]) > maxx:
+            if (sinogram2[i][j] > maxx):
                 maxx = sinogram2[i][j]
-
+            if (sinogram2[i][j] < minn):
+                minn = sinogram2[i][j]
 
     # normalizing
     for i in range(len(sinogram2)):
         for j in range(len(sinogram2[0])):
-            sinogram2[i][j] = sinogram2[i][j] / maxx
-
-
+            sinogram2[i][j] = (sinogram2[i][j] -minn)/(maxx - minn)
+    '''
+    sinogram2=normalize(sinogram2) ############################################
+    #io.imsave('./Po_filtrze4.jpg', sinogram2)
     return sinogram2
 
 
@@ -221,27 +246,31 @@ def convolve(array1, array2):
 
 def ramLakFilter(image):
     print("PRZED: ", len(image), " ", len(image[0]))
+    #io.imsave('./Przedfiltrem.jpg',image)
 
-    filter=[]
+    x=2*int(len(image[0])/8)+1 #wiec zawsze nieparzysty
+    x=11
+    center=int(x/2)
+    print("x= ",x,"Center= ",center+1)
 
+    filter=np.zeros(x)
 
-    x=int(len(image[0])/4)
 
     for i in range(x):
-        if(i==0):
-            filter.append(1)
         if(i%2==0):
-            filter.append(0)
+            filter[i]=0
         if(i%2==1):
-            filter.append((-4/(pi*pi))/(i*i))
+            filter[i] = ((-4/(pi*pi))/(i*i))
+        if (i == center):
+            filter[i] = 1
 
-    arr=np.zeros((len(image),len(image[0])+x))
-    arr2=np.zeros((len(image),len(image[0])+x))
+    #check
+    # arr2=np.zeros((len(image),len(image[0])+x-1))
 
     #uzupelnianie
-    for i in range(len(image)):
-        for j in range(int(x/2),  len(image[0])+int(x/2)):
-            arr2[i][j]=image[i][j-int(x/2)]
+    # for i in range(len(image)):
+    #     for j in range(int(x/2),  len(image[0])+int(x/2)):
+    #         arr2[i][j]=image[i][j-int(x/2)]
 
     '''
     for i in range(len(image)):
@@ -249,17 +278,42 @@ def ramLakFilter(image):
             for k in range(len(filter)):
                 arr[i][j] += arr2[i][j - k] * filter[k]
     '''
-    #for o in range(4):
+    # pomm = normalize(arr2)
+    # io.imsave('./Pommm.jpg', pomm)
+
+    '''
     for i in range(len(image)):
-        for j in range(int(len(filter)/2),   len(image[0]) ):
-            for k in range(len(filter)):
-                arr[i][j] = arr[i][j] + (arr2[i][j-k] * filter[k]) + (arr2[i][j+k] * filter[k])
+        for j in range(int(x/2),   len(image[0]) ):
+            for k in range(int(x)):
+                arr[i][j] = arr[i][j] + (arr2[i][j-k] * filter[k])#+ (arr2[i][j+k] * filter[k])
+    '''
 
-    print("PO1: ", len(arr), " ", len(arr[0]))
+    ##KRUSZYNOWY
+    arr = np.zeros_like(image)
+    #arr = np.zeros((len(image), len(image[0]) + x - 1))
+    #out_sinogram =
 
-    arr = arr[:, int(x/2):len(image[0])+int(x/2)]
+    #half_filtr_len = len(filter) // 2
+    padding = 2 * center + 1
+    pad_array = np.zeros(center)
+    for counter, element in enumerate(image):
+        for i in range(image.shape[1]):
+            arr[counter][i] = np.sum(np.concatenate([pad_array, element, pad_array])[i:i + x] * filter)
 
-    print("PO2: ",len(arr)," ", len(arr[0]))
+    #out_con_sin = list()
+    #for ind_x, x in enumerate(image):
+    #    out_convolve_line = np.convolve(x, filter, mode='same')
+    #   out_con_sin.append(out_convolve_line)
+
+    ##KRUSZYNOWY
+
+    #xx=normalize(arr)
+    #io.imsave('./Przed_obcinaniem.jpg', xx)
+
+    #arr = arr[:, int(x/2):len(image[0])+int(x/2)]
+    arr=normalize(arr)
+    #arr=normalize(arr)
+    #io.imsave('./Po_filtrze.jpg', arr)
 
     return arr
 
@@ -273,16 +327,21 @@ def makeSinogramReverse(sinogram, numberOfDet, numberOfRotation, detectorsList, 
 
 
     #finding max pixel
-    maxx=0.0
-    for i in range(len(sinogramReverse)):
-        for j in range (len(sinogramReverse[0])):
-            if(sinogramReverse[i][j])>maxx:
-                maxx = sinogramReverse[i][j]
+    # maxx=-10000000.0
+    # minn=100000.0
+    # for i in range(len(sinogramReverse)):
+    #     for j in range (len(sinogramReverse[0])):
+    #         if(sinogramReverse[i][j] > maxx):
+    #             maxx = sinogramReverse[i][j]
+    #         if(sinogramReverse[i][j] < minn):
+    #             minn = sinogramReverse[i][j]
+    #
+    # #normalizing
+    # for i in range(len(sinogramReverse)):
+    #     for j in range(len(sinogramReverse[0])):
+    #         sinogramReverse[i][j] = (sinogramReverse[i][j] - minn) / (maxx - minn)
 
-    #normalizing
-    for i in range(len(sinogramReverse)):
-        for j in range(len(sinogramReverse[0])):
-            sinogramReverse[i][j]=sinogramReverse[i][j]/maxx
+    sinogramReverse=normalize(sinogramReverse)
 
 
 
@@ -363,9 +422,8 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         nameFiltr ='BEZ_FILTRA_'
 
     fileNames =file
-
+    err=0
     for i in fileNames:
-
 
         image = io.imread(i, flatten=True)
 
@@ -374,11 +432,9 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         y=len(image)
         print("Rozmiar obrazka " + i + " wynosi : ", x, y)
 
-
         pom=i.split("/")
 
         i=pom[len(pom)-1]
-
 
         #center of picture
         centerX=x/2
@@ -403,19 +459,21 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         named=i.split(".")
         name=named[0]+'_'+nameFiltr
 
-        io.imsave('./sinogram_'+nameFiltr+i, sinogram)
+        #sinogram3=normalize(sinogram)
+        io.imsave('./Sinograms/sinogram_'+nameFiltr+i, sinogram)
         print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((y, x))
         makeSinogramReverse(sinogram, numberOfDet, numberOfRotations, arrayOfDetectors, arrayOfEmiter, image, sinogramReverse, freqOfSave,name)
 
-        io.imsave('./sinogramReverse_'+ nameFiltr + i, sinogramReverse)
+        io.imsave('./Results/sinogramReverse_'+ nameFiltr + i, sinogramReverse)
         print('Sinogram reverse saved ' +i)
 
         err=meanSquaredError(image, sinogramReverse)
         print("Blad sredniokwadratowy = " , err)
-    return err
     print("END !!! ")
+    return err
+
 
 
 def getFileNames():

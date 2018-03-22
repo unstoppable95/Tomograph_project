@@ -1,0 +1,2 @@
+
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.34620803201

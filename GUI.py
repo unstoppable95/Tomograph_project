@@ -33,14 +33,16 @@ def main():
             nameFiltr = 'BEZ_FILTRA_'
 
         findName='Reverse_'+nameFiltr+reverseName[0]
-        for file in os.listdir('./'):
+        for file in os.listdir('./Results/'):
             if findName in file:
                 path.append(file)
 
 
-        img2 = ImageTk.PhotoImage(Image.open(path[0]))
+
+        img2 = ImageTk.PhotoImage(Image.open('./Results/'+path[0]))
         label.configure(image=img2)
         label.image = img2
+
 
 
     def buttonWykonaj():
@@ -57,6 +59,7 @@ def main():
         print("Czy uzywac filtru: " + str(CheckVar1.get()))
 
         #image proceed
+
         pom1=Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
         error= str(pom1)
         shortName=createShortcut()
@@ -64,7 +67,11 @@ def main():
         printError(error)
         setPhotoSinogramReverse(shortName)
 
-
+        #zapis parametrow do pliku
+        #nazwa_pliku  czyFiltr   ilosc_detektorow   kat_alfa   kat_fi   blad_sredniokwadratowy
+        plik = open('./dane.txt', 'a+')
+        plik.write("Nazwa: "+shortName+" Liczba detektorow: "+numDetector+" Kat alfa: "+alfaAngle+" Kat fi: "+fiAngle+" Blad: "+error+"\n")
+        plik.close()
 
     def createShortcut():
         # use shortcut for search
@@ -90,8 +97,6 @@ def main():
             for file in os.listdir('./STEP'):
                     if name in file:
                         fileNamesDisp.append(file)
-
-
 
     def fileNames():
 
@@ -221,7 +226,7 @@ def main():
 
     #dzialajacy plik w labelu
 
-    photo = ImageTk.PhotoImage(Image.open("./START.jpg"))
+    photo = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/START.jpg"))
     label = tk.Label(image=photo , width=1300 , height=870 , bg='black')
     label.place(x=180, y=10)
 
