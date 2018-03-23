@@ -1,2 +1,12 @@
-
-Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.34620803201
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.523565264208
+Nazwa: Kwadraty2_BEZ_FILTRA_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.285137617383
+Nazwa: SADDLE_PE_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.391924228214
+Nazwa: SADDLE_PE_BEZ_FILTRA_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.34775947774
+Nazwa: Kropka_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.513205937092
+Nazwa: Kropka_BEZ_FILTRA_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.113829456234
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.523565264208
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: nan
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.470993487755
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.464847640548
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 270 Blad: 0.511577090249
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.339206326422

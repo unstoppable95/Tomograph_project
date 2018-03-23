@@ -229,7 +229,7 @@ def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations,
         for j in range(len(sinogram2[0])):
             sinogram2[i][j] = (sinogram2[i][j] -minn)/(maxx - minn)
     '''
-    sinogram2=normalize(sinogram2) ############################################
+    #sinogram2=normalize(sinogram2) ############################################
     #io.imsave('./Po_filtrze4.jpg', sinogram2)
     return sinogram2
 
@@ -248,21 +248,27 @@ def ramLakFilter(image):
     print("PRZED: ", len(image), " ", len(image[0]))
     #io.imsave('./Przedfiltrem.jpg',image)
 
-    x=2*int(len(image[0])/8)+1 #wiec zawsze nieparzysty
-    x=11
+    x=2*int(len(image[0])/40)+1 #wiec zawsze nieparzysty
+    #x=11
     center=int(x/2)
     print("x= ",x,"Center= ",center+1)
 
     filter=np.zeros(x)
 
 
-    for i in range(x):
+    con=(-4/(pi*pi))
+    index =0
+    for i in range(-center,center+1,1):
+        #print("I: ",i)
         if(i%2==0):
-            filter[i]=0
+            filter[index]=0
         if(i%2==1):
-            filter[i] = ((-4/(pi*pi))/(i*i))
-        if (i == center):
-            filter[i] = 1
+            filter[index] = (con/(i*i))
+        if (i==0):
+            filter[index] = 1
+        index+=1
+
+    print(filter)
 
     #check
     # arr2=np.zeros((len(image),len(image[0])+x-1))
@@ -288,7 +294,7 @@ def ramLakFilter(image):
                 arr[i][j] = arr[i][j] + (arr2[i][j-k] * filter[k])#+ (arr2[i][j+k] * filter[k])
     '''
 
-    ##KRUSZYNOWY
+
     arr = np.zeros_like(image)
     #arr = np.zeros((len(image), len(image[0]) + x - 1))
     #out_sinogram =
@@ -297,7 +303,7 @@ def ramLakFilter(image):
     padding = 2 * center + 1
     pad_array = np.zeros(center)
     for counter, element in enumerate(image):
-        for i in range(image.shape[1]):
+        for i in range(arr.shape[1]):
             arr[counter][i] = np.sum(np.concatenate([pad_array, element, pad_array])[i:i + x] * filter)
 
     #out_con_sin = list()
@@ -305,13 +311,13 @@ def ramLakFilter(image):
     #    out_convolve_line = np.convolve(x, filter, mode='same')
     #   out_con_sin.append(out_convolve_line)
 
-    ##KRUSZYNOWY
+
 
     #xx=normalize(arr)
     #io.imsave('./Przed_obcinaniem.jpg', xx)
 
     #arr = arr[:, int(x/2):len(image[0])+int(x/2)]
-    arr=normalize(arr)
+    #arr=normalize(arr)
     #arr=normalize(arr)
     #io.imsave('./Po_filtrze.jpg', arr)
 
