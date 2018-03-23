@@ -10,3 +10,6 @@ Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.4
 Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.464847640548
 Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 270 Blad: 0.511577090249
 Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.339206326422
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 181 Kat alfa: 1 Kat fi: 270 Blad: 0.339206326422
+Nazwa: Kwadraty2_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 0.370197852711
+Nazwa: CT_ScoutView_FILTR_ Liczba detektorow: 281 Kat alfa: 1 Kat fi: 250 Blad: 51.5098007945

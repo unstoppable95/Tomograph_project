@@ -22,6 +22,7 @@ import dicom
 import os
 import numpy
 from matplotlib import pyplot, cm
+import copy
 
 
 def normalize(image):
@@ -465,8 +466,9 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
         named=i.split(".")
         name=named[0]+'_'+nameFiltr
 
-        #sinogram3=normalize(sinogram)
-        io.imsave('./Sinograms/sinogram_'+nameFiltr+i, sinogram)
+        newSinogram = copy.copy(sinogram)
+        sinogramSave = normalize(newSinogram)
+        io.imsave('./Sinograms/sinogram_'+nameFiltr+i, sinogramSave)
         print("Sinogram saved : " + i)
 
         sinogramReverse = np.zeros((y, x))
@@ -482,21 +484,6 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
 
 
 
-def getFileNames():
-    file_names = []
-    os.chdir('./Zdjecia-przyklad')
-    cwd = os.getcwd()
-    for file in os.listdir(cwd):
-        if file.endswith(".jpg"):
-            name = os.path.join(cwd, file)
-            file_names.append(file)
-        if file.endswith(".JPG"):
-            name = os.path.join(cwd, file)
-            file_names.append(file)
-
-    os.chdir('../')
-    os.getcwd()
-    return file_names
 
 
 
