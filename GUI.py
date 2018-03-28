@@ -1,14 +1,14 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 import Image, ImageTk
-import os
 import Tomograf
-import numpy as np
 from pylab import *
+import os
+
 def main():
 
     # file to proceed
-    fileName = []
+    fileName= ""
 
     # files to display ( steps )
     fileNamesDisp = []
@@ -19,10 +19,10 @@ def main():
     def printError(error):
         # Label5
         lb5 = tk.Label(frame, text=error, bg='grey')
-        lb5.place(x=20, y=520)
+        lb5.place(x=0.01*width, y=0.47*height)
         #
-        lb5 = tk.Label(frame, text='Blad sredniokwadratowy :', bg='grey')
-        lb5.place(x=20, y=500)
+        lb5 = tk.Label(frame, text='Blad sredniokwadratowy: ', bg='grey')
+        lb5.place(x=0.01*width, y=0.45*height)
 
     def setPhotoSinogramReverse(fileName):
         reverseName=fileName.split("_")
@@ -43,10 +43,8 @@ def main():
         label.configure(image=img2)
         label.image = img2
 
-
-
     def buttonWykonaj():
-        #print("Kliknalem wykonaj")
+
 
         alfaAngle=e.get()
         print("Kat alfa: " + alfaAngle)
@@ -59,7 +57,6 @@ def main():
         print("Czy uzywac filtru: " + str(CheckVar1.get()))
 
         #image proceed
-
         pom1=Tomograf.main(alfaAngle, numDetector ,fiAngle,CheckVar1.get(), iteration,fileName)
         error= str(pom1)
         shortName=createShortcut()
@@ -70,7 +67,7 @@ def main():
         #zapis parametrow do pliku
         #nazwa_pliku  czyFiltr   ilosc_detektorow   kat_alfa   kat_fi   blad_sredniokwadratowy
         plik = open('./dane.txt', 'a+')
-        plik.write("Nazwa: "+shortName+" Liczba detektorow: "+numDetector+" Kat alfa: "+alfaAngle+" Kat fi: "+fiAngle+" Blad: "+error+"\n")
+        plik.write(shortName+"\t"+numDetector+"\t"+alfaAngle+"\t"+fiAngle+"\t"+error+"\t"+str(CheckVar1.get())+"\n")
         plik.close()
 
     def createShortcut():
@@ -80,7 +77,7 @@ def main():
         else:
             nameFiltr = 'BEZ_FILTRA_'
 
-        toSplit = fileName[0].split("/")
+        toSplit = fileName.split("/")
         readyName = toSplit[len(toSplit) - 1]
         readyName1 = readyName.split(".")
         ready = readyName1[0]
@@ -102,7 +99,8 @@ def main():
 
         # otwieranie sciezki
         filename = askopenfilename()
-        fileName.append(filename)
+        nonlocal fileName
+        fileName=filename
 
     def callbackLEFT():
         nonlocal idx
@@ -129,109 +127,92 @@ def main():
 
         filename1 = askopenfilename()
         img2 = ImageTk.PhotoImage(Image.open(filename1))
-        label.configure(image=img2)
-        label.image = img2
+        label8.configure(image=img2)
+        label8.image = img2
 
-
-    #main loop
 
     #window
     root = tk.Tk()
     root.title("TOMOGRAF")
     root.resizable(width=False, height=False)
+    width = root.winfo_screenwidth()
+    height = root.winfo_screenheight()
 
-
-
-    # set the root window's height, width and x,y position
-    # x and y are the coordinates of the upper left corner
-    w = 300
-    h = 200
+     #offset
     x = 20
     y = 20
-    # use width x height + x_offset + y_offset (no spaces!)
-    root.geometry("%dx%d+%d+%d" % (1500, 950, x, y))
-    # use a colorful frame
+    root.geometry("%dx%d+%d+%d" % (0.7*width, 0.8*height, x, y))
     frame = tk.Frame(root, bg='grey')
     frame.pack(fill='both', expand='yes')
 
 
-    # position a label on the frame using place(x, y)
-    # place(x=0, y=0) would be the upper left frame corner
+    #labels , buttons
     #picture location
     lb = tk.Label(frame, text="Wybierz plik do operacji:" , bg='grey')
-    lb.place(x=20, y=30)
+    lb.place(x=0.01*width, y=0.02*height)
 
     butFile = tk.Button(frame, text=" WYBIERZ PLIK ", bg='yellow', command=fileNames)
-    butFile.place(x=20, y=60)
-
-
+    butFile.place(x=0.01*width, y=0.05*height)
 
     #Angle Alpha
     lb = tk.Label(frame, text="Podaj kat rotacji alfa:" , bg='grey')
-    lb.place(x=20, y=130)
+    lb.place(x=0.01*width, y=0.1*height)
     e = tk.Entry(root)
-    e.place(x=20 , y=155)
+    e.place(x=0.01*width , y=0.12*height)
     e.focus_set()
 
     #numberOfDetectors
     lb2 = tk.Label(frame, text="Podaj liczbe detektorow:", bg='grey')
-    lb2.place(x=20, y=190)
+    lb2.place(x=0.01*width, y=0.16*height)
     e2 = tk.Entry(root)
-    e2.place(x=20 , y=215)
+    e2.place(x=0.01*width , y=0.18*height)
     e2.focus_set()
 
     #Angle FI
     lb3 = tk.Label(frame, text="Podaj kat (fi):", bg='grey')
-    lb3.place(x=20, y=250)
+    lb3.place(x=0.01*width, y=0.22*height)
     e3 = tk.Entry(root)
-    e3.place(x=20 , y=275)
+    e3.place(x=0.01*width , y=0.24*height)
     e3.focus_set()
 
     #save (co ile iteracji)
     lb4 = tk.Label(frame, text="Co ile iteracji zapisac:", bg='grey')
-    lb4.place(x=20, y=310)
+    lb4.place(x=0.01*width, y=0.28*height)
     e4 = tk.Entry(root)
-    e4.place(x=20 , y=335)
+    e4.place(x=0.01*width , y=0.3*height)
     e4.focus_set()
 
     #use filtering
     CheckVar1 = tk.IntVar()
     C1 = tk.Checkbutton( text = "Filtr", variable = CheckVar1,  onvalue = 1, offvalue = 0, height=2,  width = 5, bg='grey')
-    C1.place(x=20,y=370)
+    C1.place(x=0.01*width,y=0.34*height)
 
 
     # put the button below the label, change y coordinate
     but = tk.Button(frame, text=" PRZETWORZ ", bg='yellow', command=buttonWykonaj)
-    but.place(x=20, y=430)
+    but.place(x=0.01*width, y=0.39*height)
 
     #button w lewo
     but1 = tk.Button(frame, text=" POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callbackLEFT)
-    but1.place(x=650, y=900)
+    but1.place(x=0.3*width, y=0.75*height)
 
     #buttin w prawo
     but2 = tk.Button(frame, text=" NASTEPNE", bg='yellow', width=10 , height=2 , command=callbackRIGHT)
-    but2.place(x=850, y=900)
+    but2.place(x=0.45*width, y=0.75*height)
 
-
-
-
-    lb4 = tk.Label(frame, text="Obrazek do wyświetlenia:", bg='grey')
-    lb4.place(x=20, y=650)
-
-
+    #dowolny obrazek do wyswielenia
+    lb5 = tk.Label(frame, text="Obrazek do wyświetlenia:", bg='grey')
+    lb5.place(x=0.01*width, y=0.6*height)
 
     # buttion dowolny plik
     but3 = tk.Button(frame, text=" WYBIERZ OBRAZEK", bg='yellow', width=15, height=2, command=callback)
-    but3.place(x=20, y=700)
+    but3.place(x=0.01*width, y=0.64*height)
 
-    #dzialajacy plik w labelu
-
+    #wyswietlanie obrazu
     photo = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/START.jpg"))
-    label = tk.Label(image=photo , width=1300 , height=870 , bg='black')
-    label.place(x=180, y=10)
+    label8 = tk.Label(image=photo , width=0.6*width , height=0.72*height , bg='black')
+    label8.place(x=0.09*width, y=0.01*height)
 
-
-    #root.bind("<Return>", callback)
     root.mainloop()
 
 
