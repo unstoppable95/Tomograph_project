@@ -19,10 +19,10 @@ def main():
     def printError(error):
         # Label5
         lb5 = tk.Label(frame, text=error, bg='grey')
-        lb5.place(x=0.01*width, y=0.47*height)
+        lb5.place(x=0.01*width, y=0.49*height)
         #
         lb5 = tk.Label(frame, text='Blad sredniokwadratowy: ', bg='grey')
-        lb5.place(x=0.01*width, y=0.45*height)
+        lb5.place(x=0.01*width, y=0.47*height)
 
     def setPhotoSinogramReverse(fileName):
         reverseName=fileName.split("_")
@@ -141,7 +141,7 @@ def main():
      #offset
     x = 20
     y = 20
-    root.geometry("%dx%d+%d+%d" % (0.7*width, 0.8*height, x, y))
+    root.geometry("%dx%d+%d+%d" % (0.71*width, 0.81*height, x, y))
     frame = tk.Frame(root, bg='grey')
     frame.pack(fill='both', expand='yes')
 
@@ -158,39 +158,39 @@ def main():
     lb = tk.Label(frame, text="Podaj kat rotacji alfa:" , bg='grey')
     lb.place(x=0.01*width, y=0.1*height)
     e = tk.Entry(root)
-    e.place(x=0.01*width , y=0.12*height)
+    e.place(x=0.01*width , y=0.13*height)
     e.focus_set()
 
     #numberOfDetectors
     lb2 = tk.Label(frame, text="Podaj liczbe detektorow:", bg='grey')
     lb2.place(x=0.01*width, y=0.16*height)
     e2 = tk.Entry(root)
-    e2.place(x=0.01*width , y=0.18*height)
+    e2.place(x=0.01*width , y=0.19*height)
     e2.focus_set()
 
     #Angle FI
     lb3 = tk.Label(frame, text="Podaj kat (fi):", bg='grey')
     lb3.place(x=0.01*width, y=0.22*height)
     e3 = tk.Entry(root)
-    e3.place(x=0.01*width , y=0.24*height)
+    e3.place(x=0.01*width , y=0.25*height)
     e3.focus_set()
 
     #save (co ile iteracji)
     lb4 = tk.Label(frame, text="Co ile iteracji zapisac:", bg='grey')
     lb4.place(x=0.01*width, y=0.28*height)
     e4 = tk.Entry(root)
-    e4.place(x=0.01*width , y=0.3*height)
+    e4.place(x=0.01*width , y=0.31*height)
     e4.focus_set()
 
     #use filtering
     CheckVar1 = tk.IntVar()
     C1 = tk.Checkbutton( text = "Filtr", variable = CheckVar1,  onvalue = 1, offvalue = 0, height=2,  width = 5, bg='grey')
-    C1.place(x=0.01*width,y=0.34*height)
+    C1.place(x=0.01*width,y=0.35*height)
 
 
     # put the button below the label, change y coordinate
     but = tk.Button(frame, text=" PRZETWORZ ", bg='yellow', command=buttonWykonaj)
-    but.place(x=0.01*width, y=0.39*height)
+    but.place(x=0.01*width, y=0.41*height)
 
     #button w lewo
     but1 = tk.Button(frame, text=" POPRZEDNIE", bg='yellow' , width=10 , height=2, command=callbackLEFT)
@@ -202,16 +202,16 @@ def main():
 
     #dowolny obrazek do wyswielenia
     lb5 = tk.Label(frame, text="Obrazek do wyświetlenia:", bg='grey')
-    lb5.place(x=0.01*width, y=0.6*height)
+    lb5.place(x=0.01*width, y=0.62*height)
 
     # buttion dowolny plik
     but3 = tk.Button(frame, text=" WYBIERZ OBRAZEK", bg='yellow', width=15, height=2, command=callback)
-    but3.place(x=0.01*width, y=0.64*height)
+    but3.place(x=0.01*width, y=0.65*height)
 
     #wyswietlanie obrazu
     photo = ImageTk.PhotoImage(Image.open("./Zdjecia-przyklad/START.jpg"))
-    label8 = tk.Label(image=photo , width=0.6*width , height=0.72*height , bg='black')
-    label8.place(x=0.09*width, y=0.01*height)
+    label8 = tk.Label(image=photo , width=0.58*width , height=0.72*height , bg='black')
+    label8.place(x=0.12*width, y=0.01*height)
 
     root.mainloop()
 
