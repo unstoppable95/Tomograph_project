@@ -158,8 +158,8 @@ def countLinePixel(x0,y0, x1,y1,image):
 def makeSinogram(detectorsList, emitersList, detectorsNumber, numberOfRotations, image, high, isFilter):
     sinogram=np.zeros((numberOfRotations,detectorsNumber))
 
-    for j in range(0,int(detectorsNumber)-1):
-        for i in range(0,int(numberOfRotations)-1):
+    for j in range(0,int(detectorsNumber)):
+        for i in range(0,int(numberOfRotations)):
             temp = countLinePixel(emitersList[i][0], emitersList[i][1], detectorsList[i][j][0], detectorsList[i][j][1], image) #temp jest to zmienna przechowujaca jeden element sinogramu (wartosc jednego piksela) dla jednego detektora
             sinogram[i][j]=temp
     if(isFilter==1): #sprawdzanie czy sinogram ma zostac przefiltrowany czy nie
@@ -227,8 +227,6 @@ def makeDetectorsArray(numberOfDet, fi, systemRotationAngleAlfa, r,centerX, cent
             arrayTemp.append(point)
             point=[]
 
-        point.append(int( r * cos(alfa + pi + fi / 2 )+ centerX))
-        point.append(int( r * sin(alfa + pi + fi / 2 )+ centerY))
         arrayTemp.append(point)
         point=[]
 
@@ -255,29 +253,21 @@ def makeEmitersArray(numberOfRotation,r,centerX, centerY, systemRotationAngleAlf
     return array
 
 
-#liczy blad sredniokwadratowy pomiedzy dwoma obrazkami. Liczy go tylko w obsarze wewnatrz kola tworzonegoprzez detektory
-def meanSquaredError(oryginal, image, r): 
+#liczy blad sredniokwadratowy pomiedzy dwoma obrazkami. Liczy go tylko w obsarze wewnatrz kola tworzonego przez detektory
+def meanSquaredError(oryginal, image, r,centerX,centerY):
+
     image = np.array(image)
     oryginal = np.array(oryginal)
-    x = len(image[0])
-    y = len(image)
-    print("X: ", x, "Y: ", y)
-    delX = int((x - r * sqrt(2)) / 2)
-    delY = int((y - r * sqrt(2)) / 2)
-    delPomX = int(r * sqrt(2))
-    image = image[:, delX:]
-    image = image[:, :delPomX]
-    image = image[delY:, :]
-    image = image[:delPomX, :]
-
-    oryginal = oryginal[:, delX:]
-    oryginal = oryginal[:, :delPomX]
-    oryginal = oryginal[delY:, :]
-    oryginal = oryginal[:delPomX, :]
-
-    print("X: ", len(image[0]), "Y: ", len(oryginal))
-
-
+    print(centerX)
+    print(centerY)
+    print(int(centerX+r))
+    print(int(centerY+r))
+    for j in range(int(centerX-r),int(centerX+r)):
+        for i in range(int(centerY-r),int(centerY+r)):
+            #jeżeli piksel nie jest w kole, to ustawiamy mu w obu obrazkach wart 0, aby blad wyniosl 0 dla tych pikseli
+            if(((j-int(centerX))*(j-int(centerX))+(i-int(centerY))*(i-int(centerY)))>int(r*r)):
+                oryginal[i][j] = 0.0
+                image[i][j]=0.0
 
     return np.power(np.subtract(oryginal, image),2).mean() ** 0.5
 
@@ -336,7 +326,7 @@ def main(rotationAngle,numberOfDet,angleFi,usefiltr,freq,file):
     io.imsave('./Results/sinogramReverse_'+ nameFiltr + file, sinogramReverse)
     print('Sinogram reverse saved ' +file)
 
-    err=meanSquaredError(image, sinogramReverse,r)
+    err=meanSquaredError(image, sinogramReverse,r-2,centerX-2,centerY-2)
     print("Blad sredniokwadratowy = " , err)
     print("END !!! ")
     return err

@@ -40,8 +40,8 @@ def main():
 
 
         img2 = ImageTk.PhotoImage(Image.open('./Results/'+path[0]))
-        label.configure(image=img2)
-        label.image = img2
+        label8.configure(image=img2)
+        label8.image = img2
 
     def buttonWykonaj():
 
@@ -109,8 +109,8 @@ def main():
         else:
             idx=0
         img2 = ImageTk.PhotoImage(Image.open("./STEP/"+ fileNamesDisp[idx]))
-        label.configure(image=img2)
-        label.image = img2
+        label8.configure(image=img2)
+        label8.image = img2
 
     def callbackRIGHT():
         nonlocal idx
@@ -120,8 +120,8 @@ def main():
             idx = len(fileNamesDisp)-1
 
         img2 = ImageTk.PhotoImage(Image.open("./STEP/"+fileNamesDisp[idx]))
-        label.configure(image=img2)
-        label.image = img2
+        label8.configure(image=img2)
+        label8.image = img2
 
     def callback():
 
